@@ -4,6 +4,7 @@ import * as React from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Container from '~/components/Container';
+import { API } from '~/components/supabaseAPI';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { Button } from '~/components/ui/button';
 // import { Text } from '~/components/ui/text';
@@ -13,6 +14,14 @@ export default function Screen() {
   const insets = useSafeAreaInsets();
 
   const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp."
+
+  React.useEffect(() => {
+    (async () => {
+      const res = await API.getCountries()
+      console.log(res)
+    })()
+  }, [])
+
   return (
     <Container>
       <ScrollView className=''>
