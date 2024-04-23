@@ -6,51 +6,52 @@ module.exports = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   presets: [require('nativewind/preset')],
   theme: {
-    
     borderRadius: {
       'xxs': '2px',
       'xs': '4px',
+      'DEFAULT': '6px',
       's': '6px',
       'sm': '8px',
       'm': '12px',
       'ml': '16px',
       'lg': '24px',
       'xl': '32px',
+      'full': '999px'
     },
     extend: {
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        bg: 'var(--bg)',
+        fg: 'var(--fg)',
         primary: {
           DEFAULT: 'var(--primary)',
-          foreground: 'var(--primary-foreground)',
+          fg: 'var(--primary-fg)',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          fg: 'hsl(var(--secondary-fg))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          fg: 'hsl(var(--destructive-fg))',
         },
         muted: {
           DEFAULT: 'var(--muted)',
-          foreground: 'var(--muted-foreground)',
+          fg: 'var(--muted-fg)',
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          fg: 'hsl(var(--accent-fg))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          fg: 'hsl(var(--popover-fg))',
         },
         card: {
           DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          fg: 'hsl(var(--card-fg))',
         },
       },
       borderWidth: {

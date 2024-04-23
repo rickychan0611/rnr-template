@@ -26,6 +26,7 @@
     "clsx": "^2.1.0",
     "expo": "~50.0.14",
     "expo-font": "~11.10.3",
+    "expo-image": "^1.10.6",
     "expo-linking": "~6.2.2",
     "expo-localization": "^14.8.4",
     "expo-navigation-bar": "~2.8.1",

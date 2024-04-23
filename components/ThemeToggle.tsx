@@ -17,9 +17,9 @@ export function ThemeToggle() {
       className=''
     >
       {isDarkColorScheme ? (
-        <MoonStar className='text-primary-foreground' size={23} strokeWidth={1.25} />
+        <MoonStar className='text-fg' size={23} strokeWidth={1.25} />
       ) : (
-        <Sun className='text-primary-foreground' size={24} strokeWidth={1.25} />
+        <Sun className='text-fg' size={24} strokeWidth={1.25} />
       )}
     </Pressable>
   );

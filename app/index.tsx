@@ -17,20 +17,17 @@ export default function Screen() {
     <Container>
       <ScrollView className=''>
         <View className={`flex-col gap-4 pb-[100px] `}>
-          <View className='border rounded-s border-foreground'>
-            <Text
-              className='font-[mi-800] text-5xl text-primary-foreground leading-normal'>H1 Header 1</Text>
-          </View>
-          <H2 className='text-primary-foreground'>H2 Header 2食屎狗</H2>
-          <H3 className='text-primary-foreground'>H3  Header 3食屎狗</H3>
-          <H4 className='text-primary-foreground'>H4  Header 4食屎狗</H4>
-          <BlockQuote className='text-primary-foreground'>BlockQuote食屎狗 - {text}</BlockQuote>
-          <Code className='text-primary-foreground'>Code食屎狗 - {text}</Code>
-          <Large className='text-primary-foreground'>Large食屎狗 - {text}</Large>
-          <Lead className='text-primary-foreground'>Lead 食屎狗- {text}</Lead>
-          <Muted className='text-primary-foreground'>Muted食屎狗 - {text}</Muted>
-          <Small className='text-primary-foreground'>Small食屎狗 - {text}</Small>
-          <P className='text-primary-foreground leading-tight'>P食屎狗 - {text}</P>
+          <H1 className='border rounded-s border-fg'>H1 Header 1</H1>
+          <H2 >H2 Header 2食屎狗</H2>
+          <H3 >H3  Header 3食屎狗</H3>
+          <H4 >H4  Header 4食屎狗</H4>
+          <BlockQuote >BlockQuote食屎狗 - {text}</BlockQuote>
+          <Code >Code食屎狗 - {text}</Code>
+          <Large >Large食屎狗 - {text}</Large>
+          <Lead >Lead 食屎狗- {text}</Lead>
+          <Muted >Muted食屎狗 - {text}</Muted>
+          <Small >Small食屎狗 - {text}</Small>
+          <P className='text-fg leading-tight'>P食屎狗 - {text}</P>
           <Button>
             <ThemeToggle />
           </Button>
