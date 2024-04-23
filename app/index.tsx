@@ -18,16 +18,16 @@ export default function Screen() {
       <ScrollView className=''>
         <View className={`flex-col gap-4 pb-[100px] `}>
           <H1 className='border rounded-s border-fg'>H1 Header 1</H1>
-          <H2 >H2 Header 2食屎狗</H2>
-          <H3 >H3  Header 3食屎狗</H3>
-          <H4 >H4  Header 4食屎狗</H4>
-          <BlockQuote >BlockQuote食屎狗 - {text}</BlockQuote>
-          <Code >Code食屎狗 - {text}</Code>
-          <Large >Large食屎狗 - {text}</Large>
-          <Lead >Lead 食屎狗- {text}</Lead>
-          <Muted >Muted食屎狗 - {text}</Muted>
-          <Small >Small食屎狗 - {text}</Small>
-          <P className='text-fg leading-tight'>P食屎狗 - {text}</P>
+          <H2 >H2 Header 2</H2>
+          <H3 >H3  Header 3</H3>
+          <H4 >H4  Header 4</H4>
+          <BlockQuote >BlockQuote - {text}</BlockQuote>
+          <Code >Code - {text}</Code>
+          <Large >Large - {text}</Large>
+          <Lead >Lead - {text}</Lead>
+          <Muted >Muted - {text}</Muted>
+          <Small >Small - {text}</Small>
+          <P className='text-fg leading-tight'>P - {text}</P>
           <Button>
             <ThemeToggle />
           </Button>

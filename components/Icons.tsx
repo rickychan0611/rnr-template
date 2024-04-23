@@ -5,7 +5,8 @@ import {
   Sun,
   Home,
   ScrollText,
-  Blocks 
+  Blocks,
+  LogIn 
 } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 
@@ -26,7 +27,8 @@ interopIcon(MoonStar);
 interopIcon(Sun);
 interopIcon(Home);
 interopIcon(ScrollText);
-interopIcon(Blocks );
+interopIcon(Blocks);
+interopIcon(LogIn);
 
 export {
   Info,
@@ -34,5 +36,6 @@ export {
   Sun,
   Home,
   ScrollText,
-  Blocks 
+  Blocks,
+  LogIn
 };

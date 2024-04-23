@@ -58,6 +58,12 @@ export default function RootLayout() {
               }}
             />
             <Tabs.Screen
+              name='sign-in'
+              options={{
+                title: 'SignIn',
+              }}
+            />
+            <Tabs.Screen
               name='+not-found'
               options={{ href: null }}
             />
