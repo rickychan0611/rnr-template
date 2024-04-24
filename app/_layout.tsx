@@ -26,19 +26,19 @@ export default function RootLayout() {
   const { t } = useTranslation("common")
   const insets = useSafeAreaInsets()
 
-  
+
   return (
     <Provider store={store}>
-      <View className='flex-1 bg-bg'
-      //  style={{ paddingTop: insets.top }} 
-      >
+      <View className='flex-1 bg-background'>
         <InitApp >
           <StatusBar style={isDarkColorScheme ? 'light' : 'light'} />
           <AppBar />
           <Tabs
+            initialRouteName='sign-in'
             backBehavior='history'
             screenOptions={{
               headerShown: false,
+
             }}
             tabBar={props => <TabBar {...props} />}>
             <Tabs.Screen

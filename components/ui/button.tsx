@@ -1,26 +1,27 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable } from 'react-native';
 import { TextClassContext } from '~/components/ui/text';
 import { cn } from '~/lib/utils';
 
 const buttonVariants = cva(
-  'group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
+  'group flex items-center justify-center rounded web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
   {
     variants: {
       variant: {
-        default: 'bg-bg web:hover:opacity-90 active:opacity-90',
+        default: 'bg-primary web:hover:opacity-90 active:opacity-90 border-[0.5px] border-primary dark:border-primary-foreground',
         destructive: 'bg-destructive web:hover:opacity-90 active:opacity-90',
         outline:
-          'border border-input bg-background web:hover:bg-accent web:hover:text-accent-fg active:bg-accent',
+          'border border-input bg-background web:hover:bg-accent web:hover:text-accent-foreground active:bg-accent',
         secondary: 'bg-secondary web:hover:opacity-80 active:opacity-80',
-        ghost: 'web:hover:bg-accent web:hover:text-accent-fg active:bg-accent',
+        ghost: 'web:hover:bg-accent web:hover:text-accent-foreground active:bg-accent',
         link: 'web:underline-offset-4 web:hover:underline web:focus:underline ',
       },
       size: {
-        default: 'h-10 px-4 py-2 native:h-12 native:px-5 native:py-3',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8 native:h-14',
+        default: 'px-4 py-2',
+        sm: 'rounded-md px-3',
+        lg: 'rounded-md px-8',
         icon: 'h-10 w-10',
       },
     },
@@ -32,21 +33,21 @@ const buttonVariants = cva(
 );
 
 const buttonTextVariants = cva(
-  'web:whitespace-nowrap text-sm native:text-base font-medium text-fg web:transition-colors',
+  'web:whitespace-nowrap text-sm native:text-base font-medium web:transition-colors',
   {
     variants: {
       variant: {
-        default: 'text-fg',
-        destructive: 'text-destructive-fg',
-        outline: 'group-active:text-accent-fg',
-        secondary: 'text-secondary-fg group-active:text-secondary-fg',
-        ghost: 'group-active:text-accent-fg',
-        link: 'text-bg group-active:underline',
+        default: 'text-primary-foreground',
+        destructive: 'text-destructive-foreground',
+        outline: 'group-active:text-accent-foreground',
+        secondary: 'text-secondary-foreground group-active:text-secondary-foreground',
+        ghost: 'group-active:text-accent-foreground',
+        link: 'text-background group-active:underline',
       },
       size: {
         default: '',
         sm: '',
-        lg: 'native:text-lg',
+        lg: '',
         icon: '',
       },
     },
@@ -77,8 +78,9 @@ const Button = React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>
           ref={ref}
           role='button'
           {...props}
-        />
-      </TextClassContext.Provider>
+        >
+      </Pressable>
+      </TextClassContext.Provider >
     );
   }
 );

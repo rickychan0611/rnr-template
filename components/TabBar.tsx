@@ -16,7 +16,7 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
   }
 
   return (
-    <View className={`flex-row pt-4 bg-bg`}
+    <View className={`flex-row pt-4 bg-background`}
       style={{ paddingBottom: insets?.bottom || 6 }}>
       {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
@@ -66,8 +66,8 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
               key={index}
             >
               <View className='flex-col gap-1 justify-center items-center'>
-                <Icon className={`${isFocused ? "text-primary" : "text-muted-fg"} stroke-[1.5px]`} width={30} height={30} label={label} />
-                <Text className={`${isFocused ? "text-primary" : "text-muted-fg"} text-sm`}
+                <Icon className={`${isFocused ? "text-foreground" : "text-muted-foreground"} stroke-[1.5px]`} width={30} height={30} label={label} />
+                <Text className={`${isFocused ? "text-foreground" : "text-muted-foreground"} text-sm`}
                   maxFontSizeMultiplier={1.4}
                 >
                   {label}

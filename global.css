@@ -4,46 +4,48 @@
 
 @layer base {
   :root {
-    --bg: #ffffff;
-    --fg: #000000;
-    --card: 0 0% 100%;
-    --card-fg: 240 10% 3.9%;
+    --background: #ffffff;
+    --foreground: #2c2b2b;
+    --card: #ffffff;
+    --card-foreground: #2c2b2b;
     --popover: 0 0% 100%;
-    --popover-fg: 240 10% 3.9%;
+    --popover-foreground: 240 10% 3.9%;
     --primary: #CF2129;
-    --primary-fg: #ffffff;
+    --primary-foreground: #ffffff;
     --secondary: 240 4.8% 95.9%;
-    --secondary-fg: 240 5.9% 10%;
+    --secondary-foreground: 240 5.9% 10%;
     --muted: #dadada;
-    --muted-fg: #a7a6a6;
+    --muted-foreground: #a7a6a6;
     --accent: 240 4.8% 95.9%;
-    --accent-fg: 240 5.9% 10%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-fg: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --destructive-foreground: 0 0% 98%;
+    --border: #a7a6a6;
+    --input: #000000;
+    --input-background: #eeeeee;
+    --ring: #a7a6a6;
   }
 
   .dark:root {
-    --bg: #000000;
-    --fg: #ffffff;
-    --card: 240 10% 3.9%;
-    --card-fg: 0 0% 98%;
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #383535;
+    --card-foreground: #9c9c9c;
     --popover: 240 10% 3.9%;
-    --popover-fg: 0 0% 98%;
-    --primary: #360404;
-    --primary-fg: #ec7b82;
+    --popover-foreground: 0 0% 98%;
+    --primary: #020000;
+    --primary-foreground: #ec7b82;
     --secondary: 240 3.7% 15.9%;
-    --secondary-fg: 0 0% 98%;
+    --secondary-foreground: 0 0% 98%;
     --muted: #dadada;
-    --muted-fg: #868686;
+    --muted-foreground: #868686;
     --accent: 240 3.7% 15.9%;
-    --accent-fg: 0 0% 98%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 72% 51%;
-    --destructive-fg: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: #a7a6a6;
+    --input: #ffffff;
+    --input-background: #292626;
+    --ring: #a7a6a6;
   }
 }

@@ -9,7 +9,7 @@ module.exports = {
     borderRadius: {
       'xxs': '2px',
       'xs': '4px',
-      'DEFAULT': '6px',
+      'DEFAULT': '4px',
       's': '6px',
       'sm': '8px',
       'm': '12px',
@@ -20,38 +20,41 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        bg: 'var(--bg)',
-        fg: 'var(--fg)',
+        border: 'var(--border)',
+        input: {
+          DEFAULT: 'var(--input)',
+          background: 'var(--input-background)',
+        },
+        ring: 'var(--ring)',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
         primary: {
           DEFAULT: 'var(--primary)',
-          fg: 'var(--primary-fg)',
+          foreground: 'var(--primary-foreground)',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          fg: 'hsl(var(--secondary-fg))',
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          fg: 'hsl(var(--destructive-fg))',
+          DEFAULT: 'var(--destructive)',
+          foreground: 'var(--destructive-foreground)',
         },
         muted: {
           DEFAULT: 'var(--muted)',
-          fg: 'var(--muted-fg)',
+          foreground: 'var(--muted-foreground)',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          fg: 'hsl(var(--accent-fg))',
+          DEFAULT: 'var(--accent)',
+          foreground: 'var(--accent-foreground)',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          fg: 'hsl(var(--popover-fg))',
+          DEFAULT: 'var(--popover)',
+          foreground: 'var(--popover-foreground)',
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          fg: 'hsl(var(--card-fg))',
+          DEFAULT: 'var(--card)',
+          foreground: 'var(--card-foreground)',
         },
       },
       borderWidth: {

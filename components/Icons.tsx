@@ -6,7 +6,8 @@ import {
   Home,
   ScrollText,
   Blocks,
-  LogIn 
+  LogIn,
+  Globe
 } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 
@@ -29,6 +30,7 @@ interopIcon(Home);
 interopIcon(ScrollText);
 interopIcon(Blocks);
 interopIcon(LogIn);
+interopIcon(Globe);
 
 export {
   Info,
@@ -37,5 +39,6 @@ export {
   Home,
   ScrollText,
   Blocks,
-  LogIn
+  LogIn,
+  Globe
 };

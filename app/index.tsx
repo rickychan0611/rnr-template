@@ -15,28 +15,27 @@ export default function Screen() {
 
   const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp."
 
-  React.useEffect(() => {
-    (async () => {
-      const res = await API.getCountries()
-      console.log(res)
-    })()
-  }, [])
+  // React.useEffect(() => {
+  //   (async () => {
+  //     const res = await API.getCountries()
+  //   })()
+  // }, [])
 
   return (
     <Container>
       <ScrollView className=''>
         <View className={`flex-col gap-4 pb-[100px] `}>
-          <H1 className='border rounded-s border-fg'>H1 Header 1</H1>
-          <H2 >H2 Header 2</H2>
-          <H3 >H3  Header 3</H3>
-          <H4 >H4  Header 4</H4>
-          <BlockQuote >BlockQuote - {text}</BlockQuote>
-          <Code >Code - {text}</Code>
-          <Large >Large - {text}</Large>
-          <Lead >Lead - {text}</Lead>
-          <Muted >Muted - {text}</Muted>
-          <Small >Small - {text}</Small>
-          <P className='text-fg leading-tight'>P - {text}</P>
+          <H1 className='border rounded-s border-foreground'>Continue</H1>
+          <H2>Continue</H2>
+          <H3>Continue</H3>
+          <H4>H4  Header 4</H4>
+          <BlockQuote>BlockQuote - {text}</BlockQuote>
+          <Code>Code - {text}</Code>
+          <Large>Large - {text}</Large>
+          <Lead>Lead - {text}</Lead>
+          <Muted>Muted - {text}</Muted>
+          <Small>Small - {text}</Small>
+          <P className='text-foreground leading-tight'>P - {text}</P>
           <Button>
             <ThemeToggle />
           </Button>

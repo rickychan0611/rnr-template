@@ -19,3 +19,9 @@ export const RowBetween: FC<Props> = ({ className, children, ...props }) => (
   </View>
 )
 
+export const Center: FC<Props> = ({ className, children, ...props }) => (
+  <View className={`flex-row items-center justify-center ` + className} {...props}>
+    {children}
+  </View>
+)
+
