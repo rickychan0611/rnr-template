@@ -41,7 +41,7 @@ const SignIn = () => {
             <Input
               className='mt-10'
               placeholder={t`Phone number`}
-              keyboardType='number-pad'
+              inputMode='numeric'
               value={phone}
               onChangeText={handleChange}
             />

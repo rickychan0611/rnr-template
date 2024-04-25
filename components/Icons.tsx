@@ -7,7 +7,8 @@ import {
   ScrollText,
   Blocks,
   LogIn,
-  Globe
+  Globe,
+  ArrowLeft 
 } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 
@@ -31,6 +32,7 @@ interopIcon(ScrollText);
 interopIcon(Blocks);
 interopIcon(LogIn);
 interopIcon(Globe);
+interopIcon(ArrowLeft );
 
 export {
   Info,
@@ -40,5 +42,6 @@ export {
   ScrollText,
   Blocks,
   LogIn,
-  Globe
+  Globe,
+  ArrowLeft 
 };

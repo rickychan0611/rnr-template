@@ -2225,6 +2225,11 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
+"@react-native-community/clipboard@^1.2.2":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/clipboard/-/clipboard-1.5.1.tgz#32abb3ea2eb91ee3f9c5fb1d32d5783253c9fabe"
+  integrity sha512-AHAmrkLEH5UtPaDiRqoULERHh3oNv7Dgs0bTC0hO5Z2GdNokAMPT5w8ci8aMcRemcwbtdHjxChgtjbeA38GBdA==
+
 "@react-native/assets-registry@0.73.1", "@react-native/assets-registry@~0.73.1":
   version "0.73.1"
   resolved "https://registry.npmjs.org/@react-native/assets-registry/-/assets-registry-0.73.1.tgz"
@@ -2611,6 +2616,13 @@
     "@supabase/postgrest-js" "1.15.2"
     "@supabase/realtime-js" "2.9.4"
     "@supabase/storage-js" "2.5.5"
+
+"@twotalltotems/react-native-otp-input@^1.3.11":
+  version "1.3.11"
+  resolved "https://registry.yarnpkg.com/@twotalltotems/react-native-otp-input/-/react-native-otp-input-1.3.11.tgz#cd075f155be188bc9bb294ea8ef311667b8efb3d"
+  integrity sha512-xSsEMa8llYHITKgx1FGwU3uK56Kk6+abgkJpo57pLnUpYC2CZpvhkvRKhFa7Ui6BhdRuh0Ob1O7q234d3CksRg==
+  dependencies:
+    "@react-native-community/clipboard" "^1.2.2"
 
 "@types/cookie@^0.4.1":
   version "0.4.1"
@@ -4186,6 +4198,11 @@ expo-asset@~9.0.2:
     expo-file-system "~16.0.0"
     invariant "^2.2.4"
     md5-file "^3.2.3"
+
+expo-clipboard@~4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/expo-clipboard/-/expo-clipboard-4.3.1.tgz#ce6ed35ae31c7fc1aeadb005b8eb9b39a8bb9b40"
+  integrity sha512-WIsjvAsr2+/NZRa84mKxjui1EdPpdKbQIC2LN/KMBNuT7g4GQYL3oo9WO9G/C7doKQ7f7pnfdvO3N6fUnoRoJw==
 
 expo-constants@~15.4.0, expo-constants@~15.4.3:
   version "15.4.6"
@@ -6865,6 +6882,11 @@ react-native-mask-text@^0.14.2:
   dependencies:
     bignumber.js "^9.0.1"
 
+react-native-otp-entry@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/react-native-otp-entry/-/react-native-otp-entry-1.6.1.tgz#b860c9551bb5795b06688af812caf1ca3affa6da"
+  integrity sha512-a6nJu9lnezUyCsUU/HEJzmw+Sk/hX7WtqU1vW825DhPuAdHv1GcO28xOf69oIYEnkUAKyxpelA2u1k6hyScPcA==
+
 react-native-reanimated@~3.6.2:
   version "3.6.3"
   resolved "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.6.3.tgz"
@@ -7813,7 +7835,7 @@ tailwindcss-animate@^1.0.7:
   resolved "https://registry.npmjs.org/tailwindcss-animate/-/tailwindcss-animate-1.0.7.tgz"
   integrity sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==
 
-tailwindcss@^3.4.1:
+tailwindcss@>=2.0.0, tailwindcss@^3.4.1:
   version "3.4.3"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.3.tgz"
   integrity sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==
@@ -7997,6 +8019,13 @@ tslib@^2.0.1, tslib@^2.1.0, tslib@^2.4.0:
   version "2.6.2"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
+
+twrnc@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/twrnc/-/twrnc-4.2.0.tgz#865ec4b06ae048ca62053d283ec4755e824efdce"
+  integrity sha512-W0frl6Xt4KlrGOBBQHX4ijNDziHZR/9nWyeVbpF2qwEd15wNrMJpTmJT2PmleMbuuDl+/5DgRMmloXKXUBevdQ==
+  dependencies:
+    tailwindcss ">=2.0.0"
 
 type-detect@4.0.8:
   version "4.0.8"
