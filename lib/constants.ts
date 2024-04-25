@@ -16,3 +16,6 @@ export const NAV_THEME = {
     text: 'hsl(0 0% 98%)', // fg
   },
 };
+
+export const VERSION = "1.0.0"
+export const UPDATE = "1"

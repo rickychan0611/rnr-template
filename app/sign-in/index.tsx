@@ -1,29 +1,35 @@
-import React, { useState, useTransition } from 'react'
+import React, { useCallback, useEffect, useState, useTransition } from 'react'
 import { Image } from 'expo-image'
 import { View } from 'react-native'
 import Container from '~/components/Container'
 import { Input } from '~/components/ui/input'
-import { H4, Muted, P } from '~/components/ui/typography'
+import { H4, Muted, P, Small } from '~/components/ui/typography'
 import logo from '~/assets/icons/app-icon-circle.png'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Button } from '~/components/ui/button'
 import { Text } from '~/components/ui/text'
 import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
+import { useMutation } from '@tanstack/react-query'
+import { sendSignInCode } from '~/api/authAPI'
 
 const SignIn = () => {
   const router = useRouter()
-  const [phone, setPhone] = useState("")
+  const [phone, setPhone] = useState<string>("")
   const [t] = useTranslation("common")
 
+  const sendCode = useMutation({
+    mutationFn: useCallback(() => sendSignInCode(phone), [phone]),
+    onSuccess: () => router.push('/sign-in/verify-code')
+  });
+
   const handleChange = (text: string) => {
-    // Replace non-numeric characters with empty string
     const numericValue = text.replace(/[^0-9]/g, '');
     setPhone(numericValue);
   };
 
   const handleSubmit = () => {
-    router.push('/sign-in/verify-code')
+    sendCode.mutate()
   }
 
   return (
@@ -45,6 +51,7 @@ const SignIn = () => {
               value={phone}
               onChangeText={handleChange}
             />
+            <Small></Small>
             <Button className='w-full mt-6'
               onPress={() => handleSubmit()}>
               <Text>

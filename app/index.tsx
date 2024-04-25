@@ -4,7 +4,7 @@ import * as React from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Container from '~/components/Container';
-import { API } from '~/components/supabaseAPI';
+import { API } from '~/api/supabaseAPI';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { Button } from '~/components/ui/button';
 // import { Text } from '~/components/ui/text';

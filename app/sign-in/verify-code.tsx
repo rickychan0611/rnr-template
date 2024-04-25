@@ -16,6 +16,8 @@ import { OtpInput } from "react-native-otp-entry";
 import { useColorScheme } from '~/lib/useColorScheme';
 import BackAndTitle from '~/components/BackAndTitle'
 
+import { useMutation, useQuery } from '@tanstack/react-query'
+
 type Props = {}
 
 const SignIn = (props: Props) => {
@@ -34,7 +36,10 @@ const SignIn = (props: Props) => {
   };
   const [otp, setOtp] = React.useState('');
 
+
+
   const handleLogin = async (code: string) => {
+
     // try {
     //   setError("")
     //   let body

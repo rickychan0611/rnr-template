@@ -19,39 +19,40 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "fgImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "adaptiveIcon": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#ffffff"
     },
     "plugins": [
-      "expo-router",
-      "expo-localization",
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "./assets/fonts/MiSans-Thin.ttf",
-            "./assets/fonts/MiSans-ExtraLight.ttf",
-            "./assets/fonts/MiSans-Light.ttf",
-            "./assets/fonts/MiSans-Normal.ttf",
-            "./assets/fonts/MiSans-Regular.ttf",
-            "./assets/fonts/MiSans-Medium.ttf",
-            "./assets/fonts/MiSans-Semibold.ttf",
-            "./assets/fonts/MiSans-Demibold.ttf",
-            "./assets/fonts/MiSans-Bold.ttf",
-            "./assets/fonts/MiSans-Heavy.ttf"
-          ]
-        }
-      ]
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+      "expo-router"
+    ]
+  },
+  "web": {
+    "bundler": "metro",
+    "output": "static",
+    "favicon": "./assets/images/favicon.png"
+  },
+  "plugins": [
+    "expo-router",
+    "expo-localization",
+    [
+      "expo-font",
+      {
+        "fonts": [
+          "./assets/fonts/MiSans-Thin.ttf",
+          "./assets/fonts/MiSans-ExtraLight.ttf",
+          "./assets/fonts/MiSans-Light.ttf",
+          "./assets/fonts/MiSans-Normal.ttf",
+          "./assets/fonts/MiSans-Regular.ttf",
+          "./assets/fonts/MiSans-Medium.ttf",
+          "./assets/fonts/MiSans-Semibold.ttf",
+          "./assets/fonts/MiSans-Demibold.ttf",
+          "./assets/fonts/MiSans-Bold.ttf",
+          "./assets/fonts/MiSans-Heavy.ttf"
+        ]
+      }
+    ]
+  ],
+  "experiments": {
+    "typedRoutes": true
   }
 }

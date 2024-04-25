@@ -19,6 +19,7 @@ import TabBar from '~/components/TabBar';
 import AppBar from '~/components/AppBar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Image } from 'expo-image';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function RootLayout() {
   // cssInterop(Image, { className: "style" });
@@ -26,50 +27,59 @@ export default function RootLayout() {
   const { t } = useTranslation("common")
   const insets = useSafeAreaInsets()
 
-
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retryDelay: 2000
+      }
+    }
+  });
+  
   return (
-    <Provider store={store}>
-      <View className='flex-1 bg-background'>
-        <InitApp >
-          <StatusBar style={isDarkColorScheme ? 'light' : 'light'} />
-          <AppBar />
-          <Tabs
-            initialRouteName='sign-in'
-            backBehavior='history'
-            screenOptions={{
-              headerShown: false,
+    <QueryClientProvider client={client}>
+      <Provider store={store}>
+        <View className='flex-1 bg-background'>
+          <InitApp >
+            <StatusBar style={isDarkColorScheme ? 'light' : 'light'} />
+            <AppBar />
+            <Tabs
+              initialRouteName='sign-in'
+              backBehavior='history'
+              screenOptions={{
+                headerShown: false,
 
-            }}
-            tabBar={props => <TabBar {...props} />}>
-            <Tabs.Screen
-              name='index'
-              options={{ title: 'Home' }}
-            />
-            <Tabs.Screen
-              name='orders'
-              options={{
-                title: 'Order',
               }}
-            />
-            <Tabs.Screen
-              name='listings'
-              options={{
-                title: 'Listings',
-              }}
-            />
-            <Tabs.Screen
-              name='sign-in'
-              options={{
-                title: 'SignIn',
-              }}
-            />
-            <Tabs.Screen
-              name='+not-found'
-              options={{ href: null }}
-            />
-          </Tabs>
-        </ InitApp>
-      </View>
-    </Provider >
+              tabBar={props => <TabBar {...props} />}>
+              <Tabs.Screen
+                name='index'
+                options={{ title: 'Home' }}
+              />
+              <Tabs.Screen
+                name='orders'
+                options={{
+                  title: 'Order',
+                }}
+              />
+              <Tabs.Screen
+                name='listings'
+                options={{
+                  title: 'Listings',
+                }}
+              />
+              <Tabs.Screen
+                name='sign-in'
+                options={{
+                  title: 'SignIn',
+                }}
+              />
+              <Tabs.Screen
+                name='+not-found'
+                options={{ href: null }}
+              />
+            </Tabs>
+          </ InitApp>
+        </View>
+      </Provider >
+    </QueryClientProvider>
   );
 }
