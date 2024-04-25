@@ -18,7 +18,6 @@ import { Tabs } from 'expo-router/tabs';
 import TabBar from '~/components/TabBar';
 import AppBar from '~/components/AppBar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Image } from 'expo-image';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function RootLayout() {

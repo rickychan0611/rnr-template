@@ -199,6 +199,25 @@ const Small = React.forwardRef<TextRef, SlottableTextProps>(
 
 Small.displayName = 'Small';
 
+const Error = React.forwardRef<TextRef, SlottableTextProps>(
+  ({ className, asChild = false, ...props }, ref) => {
+    const Component = Text;
+    return (
+      <Component
+        maxFontSizeMultiplier={1.5}
+        className={cn(
+          'font-[mi-500] leading-none web:select-text text-red-500',
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+
+Error.displayName = 'Error';
+
 const Muted = React.forwardRef<TextRef, SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const Component = Text;
@@ -215,4 +234,4 @@ const Muted = React.forwardRef<TextRef, SlottableTextProps>(
 
 Muted.displayName = 'Muted';
 
-export { BlockQuote, Code, H1, H2, H3, H4, Large, Lead, Muted, P, Small };
+export { BlockQuote, Code, H1, H2, H3, H4, Large, Lead, Muted, P, Small, Error };

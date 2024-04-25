@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState, useTransition } from 'react'
+import React, { useCallback, useState } from 'react'
 import { Image } from 'expo-image'
 import { View } from 'react-native'
 import Container from '~/components/Container'
 import { Input } from '~/components/ui/input'
-import { H4, Muted, P, Small } from '~/components/ui/typography'
+import { H4, Muted, Error } from '~/components/ui/typography'
 import logo from '~/assets/icons/app-icon-circle.png'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Button } from '~/components/ui/button'
@@ -17,19 +17,24 @@ const SignIn = () => {
   const router = useRouter()
   const [phone, setPhone] = useState<string>("")
   const [t] = useTranslation("common")
+  const [err, setErr] = useState("")
 
-  const sendCode = useMutation({
+  const mutation = useMutation({
     mutationFn: useCallback(() => sendSignInCode(phone), [phone]),
-    onSuccess: () => router.push('/sign-in/verify-code')
+    onSuccess: () => router.push('/sign-in/verify-code'),
+    onError: () => {
+      setErr("Invalid Phone Number")
+    },
   });
 
   const handleChange = (text: string) => {
+    setErr("")
     const numericValue = text.replace(/[^0-9]/g, '');
     setPhone(numericValue);
   };
 
   const handleSubmit = () => {
-    sendCode.mutate()
+    mutation.mutate()
   }
 
   return (
@@ -50,9 +55,11 @@ const SignIn = () => {
               inputMode='numeric'
               value={phone}
               onChangeText={handleChange}
+              onSubmitEditing={handleSubmit}
             />
-            <Small></Small>
+            {err && <Error className='mt-2'>{err}</Error>}
             <Button className='w-full mt-6'
+              disabled={mutation.isPending}
               onPress={() => handleSubmit()}>
               <Text>
                 Continue
