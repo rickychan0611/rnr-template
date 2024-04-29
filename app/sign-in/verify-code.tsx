@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useWindowDimensions, View } from 'react-native'
 import Container from '~/components/Container'
 import { Input } from '~/components/ui/input'
-import { H4, Muted } from '~/components/ui/typography'
+import { Error, H4, Muted } from '~/components/ui/typography'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Button } from '~/components/ui/button'
 import { Text } from '~/components/ui/text'
 import { useLocalSearchParams, useRouter } from 'expo-router'
-import OTPInputView from '@twotalltotems/react-native-otp-input'
 import tw from "twrnc"
 import { useAppDispatch } from '~/redux/hooks'
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -15,73 +14,61 @@ import { setUserInfo } from '~/redux/slice/app'
 import { OtpInput } from "react-native-otp-entry";
 import { useColorScheme } from '~/lib/useColorScheme';
 import BackAndTitle from '~/components/BackAndTitle'
-
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { userApi } from '~/api/api.user'
 
 type Props = {}
 
 const SignIn = (props: Props) => {
-  const { width, height } = useWindowDimensions()
-  const { isDarkColorScheme, setColorScheme } = useColorScheme();
   const router = useRouter()
-  const [phone, setPhone] = useState("")
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>("")
-  const phoneNumber = useLocalSearchParams().phoneNumber || ""
-  const dispatch = useAppDispatch()
-  const handleChange = (text: string) => {
-    // Replace non-numeric characters with empty string
-    const numericValue = text.replace(/[^0-9]/g, '');
-    setPhone(numericValue);
-  };
-  const [otp, setOtp] = React.useState('');
+  const phone = useLocalSearchParams().phone + "" || ""
+  const [count, setCount] = useState(5);
+  const [otp, setOtp] = useState("");
+  const [err, setErr] = useState("")
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCount((prevCount) => {
+        if (prevCount === 0) {
+          clearInterval(intervalId);
+          return 0;
+        } else {
+          return prevCount - 1;
+        }
+      });
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, [count]);
 
+  const queryClient = useQueryClient();
 
-  const handleLogin = async (code: string) => {
+  const sendCodeMutation = useMutation({
+    mutationFn: () => userApi.sendSignInCode(phone),
+  });
 
-    // try {
-    //   setError("")
-    //   let body
-    //   // if (signinMethod === "code") {
-    //   if (code.length !== 6) {
-    //     setError("EMPTY_CODE")
-    //     return
-    //   }
-    //   body = {
-    //     user_name: phoneNumber + "",
-    //     verifycode: code
-    //   }
-    //   setIsLoading(true)
-    //   const res: any = await userAuthAPI.login(body)
-    //   if (res.code === 200 || res.code === 202) {
-    //     await AsyncStorage.setItem("buyerToken", res.data)
-    //     const user = await userAccountAPI.userInfo()
-    //     dispatch(setUserInfo(user.data))
+  const logInMutation = useMutation({
+    mutationFn: (code: string) => {
+      console.log(code)
+      return userApi.login(phone, code)
+    },
+    onError: (err) => {
+      console.log("onError", err)
+      setErr("Code Invalid")
+    },
+    onSuccess: async (res: any) => {
+      console.log("onSuccess", res)
+      await AsyncStorage.setItem("userToken", res.data.data)
+      queryClient.invalidateQueries({ queryKey: ["userInfo"] })
+      router.push('/')
+    }
+  });
 
-    //     // await registerForPushNotificationsAsync(t)
-    //     if (res.code === 200) {
-    //       if (origin) {
-    //         // router.push("/" + origin)
-    //       }
-    //       else router.push("/")
-    //     }
-    //     if (res.code === 202) {
-    //       // router.push("/register")
-    //     }
-    // await Clipboard.setStringAsync('hello world')
-
-    //   } else {
-    //     setError(res)
-    //     throw res.message
-    //   }
-    // }
-    // catch (error: any) {
-    //   setError(t`Code invalid`)
-    // }
-    // finally {
-    //   setIsLoading(false)
-    // }
+  const handleResend = () => {
+    setCount(5);
+    sendCodeMutation.mutate()
+  }
+  const handleSubmit = async (code: string) => {
+    logInMutation.mutate(code)
   }
 
   return (
@@ -102,27 +89,33 @@ const SignIn = (props: Props) => {
             </Muted>
 
             <H4 className=' text-center mt-3 mb-8'>
-              1234567890
+              {phone}
             </H4>
 
             <OtpInput
               numberOfDigits={6}
-              onTextChange={(text) => console.log(text)}
+              onTextChange={(text) => {
+                setErr("")
+                setOtp(text)
+              }}
               textInputProps={{
                 maxFontSizeMultiplier: 0.1
               }}
               theme={{
-                containerStyle: tw`flex-1`,
-                pinCodeContainerStyle: tw`web:mx-2 min-h-14 min-w-10 h-full`,
+                containerStyle: tw`flex-1 w-full max-w-[95%] min-w-[300px]`,
+                pinCodeContainerStyle: tw` min-h-14 min-w-10 h-full`,
                 pinCodeTextStyle: tw`text-red-400 text-xl`,
                 focusStickStyle: tw`bg-red-400`,
                 focusedPinCodeContainerStyle: tw`border-red-300`,
               }}
+              onFilled={(text) => handleSubmit(text)}
             />
-
+            <Error className='mt-2'>{err || ""}</Error>
             <Button variant={"ghost"}
-              onPress={() => console.log("fuck")}>
-              <Text className='text-muted-foreground mt-8'>Resend</Text>
+              onPress={handleResend}
+              disabled={count !== 0}
+            >
+              <Text className='text-blue-400 mt-8'>{count > 0 ? "(" + count + "s)" : "Resend Code?"}</Text>
             </Button>
 
           </View>

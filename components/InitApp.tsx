@@ -1,9 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Theme, ThemeProvider } from "@react-navigation/native";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useFonts } from "expo-font";
 import { SplashScreen } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import { Platform } from "react-native";
+import { useGetUserInfo } from "~/api/queryHooks/useUserQueries";
+
 import { NAV_THEME } from "~/lib/constants";
 import { useColorScheme } from '~/lib/useColorScheme';
 
@@ -63,7 +66,7 @@ const InitApp = ({ children }: { children: React.ReactNode }) => {
     setIsAppReady(true)
   };
 
-  
+
   React.useEffect(() => {
     loadTheme()
   }, [])
@@ -73,6 +76,14 @@ const InitApp = ({ children }: { children: React.ReactNode }) => {
       hideSplashScreen()
     }
   }, [fontsLoaded, isColorSchemeLoaded])
+
+
+  const userInfo = useGetUserInfo()
+
+  // // initial queries
+  useEffect(() => {
+    console.log("init user", userInfo.data)
+  }, [userInfo])
 
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>

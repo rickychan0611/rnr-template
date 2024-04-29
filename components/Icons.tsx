@@ -8,7 +8,8 @@ import {
   Blocks,
   LogIn,
   Globe,
-  ArrowLeft 
+  ArrowLeft,
+  UserRound 
 } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 
@@ -32,7 +33,8 @@ interopIcon(ScrollText);
 interopIcon(Blocks);
 interopIcon(LogIn);
 interopIcon(Globe);
-interopIcon(ArrowLeft );
+interopIcon(ArrowLeft);
+interopIcon(UserRound);
 
 export {
   Info,
@@ -43,5 +45,6 @@ export {
   Blocks,
   LogIn,
   Globe,
-  ArrowLeft 
+  ArrowLeft,
+  UserRound 
 };

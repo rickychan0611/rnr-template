@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Image } from 'expo-image'
 import { View } from 'react-native'
 import Container from '~/components/Container'
@@ -11,7 +11,7 @@ import { Text } from '~/components/ui/text'
 import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
 import { useMutation } from '@tanstack/react-query'
-import { sendSignInCode } from '~/api/authAPI'
+import { userApi } from '~/api/api.user'
 
 const SignIn = () => {
   const router = useRouter()
@@ -19,12 +19,13 @@ const SignIn = () => {
   const [t] = useTranslation("common")
   const [err, setErr] = useState("")
 
-  const mutation = useMutation({
-    mutationFn: useCallback(() => sendSignInCode(phone), [phone]),
-    onSuccess: () => router.push('/sign-in/verify-code'),
-    onError: () => {
+  const sendCodeQuery = useMutation({
+    mutationFn: () => userApi.sendSignInCode(phone),
+    onError: (err) => {
+      console.log("onError", err)
       setErr("Invalid Phone Number")
     },
+    onSuccess: () => router.push({ pathname: '/sign-in/verify-code', params: { phone } }),
   });
 
   const handleChange = (text: string) => {
@@ -34,8 +35,12 @@ const SignIn = () => {
   };
 
   const handleSubmit = () => {
-    mutation.mutate()
+    sendCodeQuery.mutate()
   }
+
+  useEffect(() => {
+    return () => sendCodeQuery.reset()
+  }, [])
 
   return (
     <Container>
@@ -57,10 +62,11 @@ const SignIn = () => {
               onChangeText={handleChange}
               onSubmitEditing={handleSubmit}
             />
-            {err && <Error className='mt-2'>{err}</Error>}
+            <Error className='mt-2'>{err || ""}</Error>
             <Button className='w-full mt-6'
-              disabled={mutation.isPending}
-              onPress={() => handleSubmit()}>
+              disabled={sendCodeQuery.isPending}
+              onPress={() => handleSubmit()}
+            >
               <Text>
                 Continue
               </Text>

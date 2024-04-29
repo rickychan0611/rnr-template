@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Blocks, Home, LogIn, ScrollText } from '~/components/Icons';
+import { Blocks, Home, UserRound, ScrollText } from '~/components/Icons';
 
 export default function TabBar({ state, descriptors, navigation, props }: any) {
   const insets = useSafeAreaInsets();
@@ -11,7 +11,7 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
     const Component =
       label === "Home" ? Home :
         label === "Order" ? ScrollText :
-          label === "Listings" ? Blocks : LogIn
+          label === "Listings" ? Blocks : UserRound 
     return <Component {...props} />
   }
 

@@ -6,5 +6,7 @@
   "Peaceful supplier dashboard": "Peaceful supplier dashboard",
   "Verify Account": "Verify Account",
   "Enter the one-time code we sent to": "Enter the one-time code we sent to",
-  "Invalid Phone Number": "Invalid Phone Number"
+  "Invalid Phone Number": "Invalid Phone Number",
+  "Code Invalid": "Code Invalid",
+  "Resend Code?": "Resend Code?"
 }

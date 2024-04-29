@@ -6,6 +6,17 @@ module.exports = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   presets: [require('nativewind/preset')],
   theme: {
+    fontSize: {
+      // 'DEFAULT': '16px',
+      // 'xxs': '4px',
+      // 'xs': '6px',
+      // 's': '8px',
+      // 'sm': '12px',
+      // 'm': '16px',
+      // 'ml': '24px',
+      // 'lg': '30px',
+      // 'xl': '48px',
+    },
     borderRadius: {
       'xxs': '2px',
       'xs': '4px',
