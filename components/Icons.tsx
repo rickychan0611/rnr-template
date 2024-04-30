@@ -9,7 +9,11 @@ import {
   LogIn,
   Globe,
   ArrowLeft,
-  UserRound 
+  UserRound,
+  LayoutDashboard,
+  ClipboardList,
+  Boxes,
+  Store
 } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 
@@ -35,6 +39,10 @@ interopIcon(LogIn);
 interopIcon(Globe);
 interopIcon(ArrowLeft);
 interopIcon(UserRound);
+interopIcon(LayoutDashboard);
+interopIcon(ClipboardList);
+interopIcon(Boxes);
+interopIcon(Store);
 
 export {
   Info,
@@ -46,5 +54,9 @@ export {
   LogIn,
   Globe,
   ArrowLeft,
-  UserRound 
+  UserRound,
+  LayoutDashboard,
+  ClipboardList,
+  Boxes,
+  Store
 };

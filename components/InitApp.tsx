@@ -81,9 +81,9 @@ const InitApp = ({ children }: { children: React.ReactNode }) => {
   const userInfo = useGetUserInfo()
 
   // // initial queries
-  useEffect(() => {
-    console.log("init user", userInfo.data)
-  }, [userInfo])
+  // useEffect(() => {
+  //   console.log("init user", userInfo.data)
+  // }, [userInfo])
 
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Blocks, Home, UserRound, ScrollText } from '~/components/Icons';
+import { Blocks, Home, UserRound, ScrollText, LayoutDashboard, ClipboardList, Boxes, Store } from '~/components/Icons';
 
 export default function TabBar({ state, descriptors, navigation, props }: any) {
   const insets = useSafeAreaInsets();
@@ -9,16 +9,17 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
   const Icon = (props: any) => {
     const label = props.label
     const Component =
-      label === "Home" ? Home :
-        label === "Order" ? ScrollText :
-          label === "Listings" ? Blocks : UserRound 
+      label === "Home" ? LayoutDashboard :
+        label === "Order" ? ClipboardList :
+          label === "Listings" ? Boxes : Store
     return <Component {...props} />
   }
 
   return (
-    <View className={`flex-row pt-4 bg-background`}
+    <View className={`flex-row pt-4 bg-card`}
       style={{ paddingBottom: insets?.bottom || 6 }}>
       {state.routes.map((route: any, index: number) => {
+
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
@@ -54,6 +55,10 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
           label === "Listings" ||
           label === "SignIn"
         ) {
+
+          const Iconclass = isFocused ? "text-primary stroke-[1.5px]" : "text-muted stroke-[1.5px]"
+          const Textclass = isFocused ? "text-primary text-sm" : "text-muted text-sm "
+
           return (
             <TouchableOpacity
               accessibilityRole="button"
@@ -66,8 +71,8 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
               key={index}
             >
               <View className='flex-col gap-1 justify-center items-center'>
-                <Icon className={`${isFocused ? "text-foreground" : "text-muted-foreground"} stroke-[1.5px]`} width={30} height={30} label={label} />
-                <Text className={`${isFocused ? "text-foreground" : "text-muted-foreground"} text-sm`}
+                <Icon className={Iconclass} width={30} height={30} label={label} />
+                <Text className={Textclass}
                   maxFontSizeMultiplier={1.4}
                 >
                   {label}

@@ -15,7 +15,7 @@ const H1 = React.forwardRef<TextRef, SlottableTextProps>(
         role='heading'
         aria-level='1'
         className={cn(
-          'font-[mi-1000] text-[48px] web:scroll-m-20 text-foreground tracking-tight lg:text-5xl web:select-text',
+          'font-[mi-1000] text-[48px] web:scroll-m-20 text-text tracking-tight lg:text-5xl web:select-text',
           className
         )}
         ref={ref}
@@ -36,7 +36,7 @@ const H2 = React.forwardRef<TextRef, SlottableTextProps>(
         role='heading'
         aria-level='2'
         className={cn(
-          'font-[mi-900] text-[30px] web:scroll-m-20text-foreground tracking-tight first:mt-0 web:select-text',
+          'font-[mi-900] text-[30px] web:scroll-m-20 text-text tracking-tight first:mt-0 web:select-text',
           className
         )}
         ref={ref}
@@ -57,7 +57,7 @@ const H3 = React.forwardRef<TextRef, SlottableTextProps>(
         role='heading'
         aria-level='3'
         className={cn(
-          'font-[mi-700] text-[24px] web:scroll-m-20 text-foreground tracking-tight web:select-text',
+          'font-[mi-700] text-[24px] web:scroll-m-20 text-text tracking-tight web:select-text',
           className
         )}
         ref={ref}
@@ -78,7 +78,7 @@ const H4 = React.forwardRef<TextRef, SlottableTextProps>(
         role='heading'
         aria-level='4'
         className={cn(
-          'font-[mi-800] text-[20px] web:scroll-m-20 text-foreground tracking-tight web:select-text',
+          'font-[mi-800] text-[20px] web:scroll-m-20 text-text tracking-tight web:select-text',
           className
         )}
         ref={ref}
@@ -99,7 +99,7 @@ const H5 = React.forwardRef<TextRef, SlottableTextProps>(
         role='heading'
         aria-level='4'
         className={cn(
-          'font-[mi-600] web:scroll-m-20 text-[18px] text-foreground tracking-tight web:select-text',
+          'font-[mi-600] web:scroll-m-20 text-[18px] text-text tracking-tight web:select-text',
           className
         )}
         ref={ref}
@@ -118,7 +118,7 @@ const P = React.forwardRef<TextRef, SlottableTextProps>(
     return (
       <Component
         maxFontSizeMultiplier={1.4}
-        className={cn('font-[mi-500] text-[16px] text-foreground web:select-text', className)}
+        className={cn('font-[mi-500] text-[16px] text-text web:select-text', className)}
         ref={ref}
         {...props}
       />
@@ -136,7 +136,7 @@ const BlockQuote = React.forwardRef<TextRef, SlottableTextProps>(
         // @ts-ignore - role of blockquote renders blockquote element on the web
         role={Platform.OS === 'web' ? 'blockquote' : undefined}
         className={cn(
-          'font-[mi-400] mt-6 native:mt-4 border-l-2 border-border pl-6 native:pl-3 text-foreground italic web:select-text',
+          'font-[mi-400] mt-6 native:mt-4 border-l-2 border-border pl-6 native:pl-3 text-text italic web:select-text',
           className
         )}
         ref={ref}
@@ -157,7 +157,7 @@ const Code = React.forwardRef<TextRef, SlottableTextProps>(
         // @ts-ignore - role of code renders code element on the web
         role={Platform.OS === 'web' ? 'code' : undefined}
         className={cn(
-          'font-[mi-300] italic relative rounded-md bg-muted text-foreground p-4 text-[14px] web:select-text',
+          'font-[mi-300] italic relative rounded-md bg-muted text-text p-4 text-[14px] web:select-text',
           className
         )}
         ref={ref}
@@ -190,7 +190,7 @@ const Lead = React.forwardRef<TextRef, SlottableTextProps>(
     return (
       <Component
         maxFontSizeMultiplier={1.4}
-        className={cn('font-[mi-600] text-[20px] text-muted-foreground web:select-text', className)}
+        className={cn('font-[mi-600] text-[20px] text-muted web:select-text', className)}
         ref={ref}
         {...props}
       />
@@ -205,7 +205,7 @@ const Large = React.forwardRef<TextRef, SlottableTextProps>(
     return (
       <Component
         maxFontSizeMultiplier={1.4}
-        className={cn('font-[mi-700] text-[18px] text-foreground font-semibold web:select-text', className)}
+        className={cn('font-[mi-700] text-[18px] text-text font-semibold web:select-text', className)}
         ref={ref}
         {...props}
       />
@@ -222,7 +222,7 @@ const Small = React.forwardRef<TextRef, SlottableTextProps>(
       <Component
         maxFontSizeMultiplier={1.4}
         className={cn(
-          'font-[mi-600] text-[10px] text-foreground font-medium web:select-text',
+          'font-[mi-600] text-[10px] text-text font-medium web:select-text',
           className
         )}
         ref={ref}
@@ -259,7 +259,7 @@ const Muted = React.forwardRef<TextRef, SlottableTextProps>(
     return (
       <Component
         maxFontSizeMultiplier={1.4}
-        className={cn('font-[mi-500] text-muted-foreground web:select-text', className)}
+        className={cn('font-[mi-500] text-muted web:select-text', className)}
         ref={ref}
         {...props}
       />
