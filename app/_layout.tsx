@@ -8,8 +8,6 @@ LogBox.ignoreLogs([
 ]);
 import '~/locales/initI18n';
 import * as React from 'react';
-import { Provider } from 'react-redux'
-import { store } from '~/redux/store'
 // import { StatusBar } from 'expo-status-bar';
 import InitApp from '~/components/InitApp';
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -53,50 +51,48 @@ export default function RootLayout() {
   useReactQueryDevTools(client);
 
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={client}>
-        <View className='flex-1 bg-background'>
-          <InitApp >
-            {up && <StatusBar barStyle='light-content' animated />}
-            <AppBar />
-            <Tabs
-              initialRouteName='sign-in'
-              backBehavior='history'
-              screenOptions={{
-                headerShown: false,
+    <QueryClientProvider client={client}>
+      <View className='flex-1 bg-background'>
+        <InitApp >
+          {up && <StatusBar barStyle='light-content' animated />}
+          <AppBar />
+          <Tabs
+            initialRouteName='sign-in'
+            backBehavior='history'
+            screenOptions={{
+              headerShown: false,
 
+            }}
+            tabBar={props => <TabBar {...props} />}>
+            <Tabs.Screen
+              name='index'
+              options={{ title: 'Home' }}
+            />
+            <Tabs.Screen
+              name='orders'
+              options={{
+                title: 'Order',
               }}
-              tabBar={props => <TabBar {...props} />}>
-              <Tabs.Screen
-                name='index'
-                options={{ title: 'Home' }}
-              />
-              <Tabs.Screen
-                name='orders'
-                options={{
-                  title: 'Order',
-                }}
-              />
-              <Tabs.Screen
-                name='listings'
-                options={{
-                  title: 'Listings',
-                }}
-              />
-              <Tabs.Screen
-                name='sign-in'
-                options={{
-                  title: 'SignIn',
-                }}
-              />
-              <Tabs.Screen
-                name='+not-found'
-                options={{ href: null }}
-              />
-            </Tabs>
-          </ InitApp>
-        </View>
-      </QueryClientProvider>
-    </Provider >
+            />
+            <Tabs.Screen
+              name='listings'
+              options={{
+                title: 'Listings',
+              }}
+            />
+            <Tabs.Screen
+              name='sign-in'
+              options={{
+                title: 'SignIn',
+              }}
+            />
+            <Tabs.Screen
+              name='+not-found'
+              options={{ href: null }}
+            />
+          </Tabs>
+        </ InitApp>
+      </View>
+    </QueryClientProvider>
   );
 }

@@ -8,9 +8,7 @@ import { Button } from '~/components/ui/button'
 import { Text } from '~/components/ui/text'
 import { useLocalSearchParams, useRouter } from 'expo-router'
 import tw from "twrnc"
-import { useAppDispatch } from '~/redux/hooks'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { setUserInfo } from '~/redux/slice/app'
 import { OtpInput } from "react-native-otp-entry";
 import { useColorScheme } from '~/lib/useColorScheme';
 import BackAndTitle from '~/components/BackAndTitle'

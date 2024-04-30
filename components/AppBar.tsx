@@ -9,9 +9,6 @@ import { Text, View, TouchableOpacity, Modal } from 'react-native';
 //navigation
 import { useTranslation } from 'react-i18next';
 
-//redux 
-import { useAppDispatch, useAppSelector } from '~/redux/hooks';
-
 // icons
 import logo from '~/assets/icons/app-icon-circle.png'
 import { Row, RowBetween } from './FlexViews';
