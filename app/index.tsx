@@ -6,6 +6,7 @@ import { BlockQuote, Code, H1, H2, H3, H4, Large, Lead, Muted, P, Small } from '
 import { useGetUserInfo } from '~/api/queryHooks/useUserQueries';
 import Button from '~/components/Button';
 import { Row } from '~/components/FlexViews';
+import { ArrowLeft, Info } from '~/components/Icons';
 
 export default function Screen() {
   const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp."
@@ -15,15 +16,17 @@ export default function Screen() {
   return (
     <>
       <Container>
+        {/* <LucideIcons.ArrowLeft className='text-primary m-4'/> */}
+        <ArrowLeft className='text-primary m-4' />
         <ScrollView className='p-4'>
           <Row className='gap-4 mb-4'>
-            <Button>
+            <Button icon="Info" circle>
               Primary
             </Button>
             <Button varient='secondary'>
               Secondary
             </Button>
-            <Button varient='outline'>
+            <Button varient='outline'  icon="Home">
               outline
             </Button>
           </Row>
@@ -31,12 +34,10 @@ export default function Screen() {
             <Button disabled>
               Primary
             </Button >
-            <Button varient='secondary' disabled>
+            <Button varient='secondary' disabled  icon="Info">
               Secondary
             </Button>
-            <Button varient='outline' disabled>
-              outline
-            </Button>
+            <Button varient='outline' disabled   icon="Info" circle />
           </Row>
           <View className={`flex-col gap-4 pb-[100px] `}>
             <H1 className=''>H1 Continue</H1>

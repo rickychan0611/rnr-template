@@ -2,21 +2,23 @@ import React from 'react'
 import { Interact } from './ui/typography'
 import { Center, Row } from './FlexViews'
 import PressableOpacity from './PressableOpacity'
-// import Icons from 'lucide-react-native';
+import * as Icons from './Icons';
 
 type Props = {
-  children: React.ReactNode,
+  children?: React.ReactNode,
   varient?: "primary" | "secondary" | "outline",
   disabled?: boolean,
   onPress?: () => void,
   className?: string,
-  // icon?: keyof typeof Icons
+  icon?: keyof typeof Icons,
+  circle?: boolean
 }
 
-const Button: React.FC<Props> = ({ children, varient, disabled, className }, props) => {
+const Button: React.FC<Props> = ({ children, varient, disabled, className, icon, circle }, props) => {
   // default
   let bgClass = 'bg-primary web:hover:bg-primary-700 border border-primary web:hover:border-primary-700'
   let textClass = "text-primary-foreground"
+  const cirlceClass = circle ? " rounded-full p-sm " : " rounded py-sm px-m "
 
   //disabled
   if (!varient && disabled) {
@@ -42,17 +44,16 @@ const Button: React.FC<Props> = ({ children, varient, disabled, className }, pro
     textClass = "text-primary"
   }
 
-  // const Iconx = Icons.Sun
+  const Icon: any = icon ? Icons[icon] : <></>
 
-  
   return (
     <PressableOpacity {...props} className={className}>
-      <Center className={bgClass + " py-sm px-m rounded"}>
-        <Row className='gap-4'>
-          {/* {icon && <Iconx />} */}
-          <Interact className={textClass}>
+      <Center className={bgClass + cirlceClass}>
+        <Row className='gap-2'>
+          {icon && <Icon className={textClass as string} />}
+          {!circle && <Interact className={textClass}>
             {children}
-          </Interact>
+          </Interact>}
         </Row>
       </Center>
     </PressableOpacity>

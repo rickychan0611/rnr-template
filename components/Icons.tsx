@@ -1,23 +1,7 @@
-import {
-  Info,
-  LucideIcon,
-  MoonStar,
-  Sun,
-  Home,
-  ScrollText,
-  Blocks,
-  LogIn,
-  Globe,
-  ArrowLeft,
-  UserRound,
-  LayoutDashboard,
-  ClipboardList,
-  Boxes,
-  Store
-} from 'lucide-react-native';
+import * as LucideIcons from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
 
-function interopIcon(icon: LucideIcon) {
+function interopIcon(icon: any) {
   cssInterop(icon, {
     className: {
       target: 'style',
@@ -29,34 +13,6 @@ function interopIcon(icon: LucideIcon) {
   });
 }
 
-interopIcon(Info);
-interopIcon(MoonStar);
-interopIcon(Sun);
-interopIcon(Home);
-interopIcon(ScrollText);
-interopIcon(Blocks);
-interopIcon(LogIn);
-interopIcon(Globe);
-interopIcon(ArrowLeft);
-interopIcon(UserRound);
-interopIcon(LayoutDashboard);
-interopIcon(ClipboardList);
-interopIcon(Boxes);
-interopIcon(Store);
+Object.values(LucideIcons).forEach(icon => interopIcon(icon));
 
-export {
-  Info,
-  MoonStar,
-  Sun,
-  Home,
-  ScrollText,
-  Blocks,
-  LogIn,
-  Globe,
-  ArrowLeft,
-  UserRound,
-  LayoutDashboard,
-  ClipboardList,
-  Boxes,
-  Store
-};
+export * from 'lucide-react-native'
