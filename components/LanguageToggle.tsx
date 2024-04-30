@@ -1,12 +1,11 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from 'react';
-import { Pressable, TouchableOpacity, View } from 'react-native';
+import { Pressable, Text, TouchableOpacity, View } from 'react-native';
 import { MoonStar, Sun, Globe } from '~/components/Icons';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { getLocales } from 'expo-localization';
 import { useTranslation } from 'react-i18next';
-import { Text } from './ui/text';
 
 export function LanguageToggle() {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();

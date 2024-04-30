@@ -1,8 +1,6 @@
 import { QueryCache, useQuery, useQueryClient } from '@tanstack/react-query';
 import React, { useEffect } from 'react'
-import { getUserInfo } from '~/api/api.user';
-import { useUserInfo } from '~/api/queries';
-import { Text } from '~/components/ui/text'
+import { Text } from 'react-native';
 
 type Props = {}
 

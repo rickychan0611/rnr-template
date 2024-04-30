@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import logo from '~/assets/icons/app-icon-circle.png'
 import { Row, RowBetween } from './FlexViews';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { H2, H3, H4 } from './ui/typography';
+import { H2, H3, H4 } from './Typography';
 import { Image } from 'expo-image';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageToggle } from './LanguageToggle';

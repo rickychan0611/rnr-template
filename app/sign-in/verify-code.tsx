@@ -1,19 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useWindowDimensions, View } from 'react-native'
 import Container from '~/components/Container'
-import { Input } from '~/components/ui/input'
-import { Error, H4, Muted } from '~/components/ui/typography'
+import { Error, H4, Muted } from '~/components/Typography'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Button } from '~/components/ui/button'
-import { Text } from '~/components/ui/text'
+import Button from '~/components/Button'
 import { useLocalSearchParams, useRouter } from 'expo-router'
-import tw from "twrnc"
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { OtpInput } from "react-native-otp-entry";
 import { useColorScheme } from '~/lib/useColorScheme';
 import BackAndTitle from '~/components/BackAndTitle'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { userApi } from '~/api/api.user'
+import tw from "twrnc"
 
 type Props = {}
 
@@ -71,7 +69,7 @@ const SignIn = (props: Props) => {
 
   return (
     <Container>
-      <View style={tw`absolute z-50`}>
+      <View className={`absolute z-50`}>
         <BackAndTitle />
       </View>
       <KeyboardAwareScrollView>
@@ -109,11 +107,11 @@ const SignIn = (props: Props) => {
               onFilled={(text) => handleSubmit(text)}
             />
             <Error className='mt-2'>{err || ""}</Error>
-            <Button variant={"ghost"}
+            <Button variant="outline"
               onPress={handleResend}
               disabled={count !== 0}
             >
-              <Text className='text-blue-400 mt-8'>{count > 0 ? "(" + count + "s)" : "Resend Code?"}</Text>
+              {count > 0 ? "(" + count + "s)" : "Resend Code?"}
             </Button>
 
           </View>

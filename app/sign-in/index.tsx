@@ -1,17 +1,15 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Image } from 'expo-image'
-import { View } from 'react-native'
+import { View, TextInput, Text } from 'react-native'
 import Container from '~/components/Container'
-import { Input } from '~/components/ui/input'
-import { H4, Muted, Error } from '~/components/ui/typography'
+import { H4, Muted, Error } from '~/components/Typography'
 import logo from '~/assets/icons/app-icon-circle.png'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Button } from '~/components/ui/button'
-import { Text } from '~/components/ui/text'
 import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
 import { useMutation } from '@tanstack/react-query'
 import { userApi } from '~/api/api.user'
+import Button from '~/components/Button'
 
 const SignIn = () => {
   const router = useRouter()
@@ -54,8 +52,8 @@ const SignIn = () => {
             <Muted className='mt-4 text-center'>
               Harmony Builds Wealth, Together We Flourish
             </Muted>
-            <Input
-              className='mt-10'
+            <TextInput
+              className='mt-10 bg-neutral-200 rounded'
               placeholder={t`Phone number`}
               inputMode='numeric'
               value={phone}
@@ -63,18 +61,19 @@ const SignIn = () => {
               onSubmitEditing={handleSubmit}
             />
             <Error className='mt-2'>{err || ""}</Error>
-            <Button className='w-full mt-6'
-              disabled={sendCodeQuery.isPending}
-              onPress={() => handleSubmit()}
-            >
-              <Text>
+
+            <View className='w-full mt-7'>
+              <Button
+                disabled={sendCodeQuery.isPending}
+                onPress={() => handleSubmit()}>
                 Continue
-              </Text>
-            </Button>
+              </Button>
+            </View>
+
           </View>
         </View>
       </KeyboardAwareScrollView>
-    </Container>
+    </Container >
   )
 }
 
