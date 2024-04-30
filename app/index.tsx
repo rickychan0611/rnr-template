@@ -4,9 +4,7 @@ import Container from '~/components/Container';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { BlockQuote, Code, H1, H2, H3, H4, Large, Lead, Muted, P, Small } from '~/components/ui/typography';
 import { useGetUserInfo } from '~/api/queryHooks/useUserQueries';
-import { Text } from '~/components/ui/text';
-import Button_Primary from '~/components/Button_Primary';
-import Button from '~/components/Button_Primary';
+import Button from '~/components/Button';
 import { Row } from '~/components/FlexViews';
 
 export default function Screen() {
@@ -26,6 +24,17 @@ export default function Screen() {
               Secondary
             </Button>
             <Button varient='outline'>
+              outline
+            </Button>
+          </Row>
+          <Row className='gap-4 mb-4'>
+            <Button disabled>
+              Primary
+            </Button >
+            <Button varient='secondary' disabled>
+              Secondary
+            </Button>
+            <Button varient='outline' disabled>
               outline
             </Button>
           </Row>
