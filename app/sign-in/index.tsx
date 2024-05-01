@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Image } from 'expo-image'
-import { View, TextInput, Text } from 'react-native'
+import { View, Text } from 'react-native'
+import TextInput from '~/components/TextInput'
 import Container from '~/components/Container'
 import { H4, Muted, Error } from '~/components/Typography'
 import logo from '~/assets/icons/app-icon-circle.png'
@@ -44,7 +45,7 @@ const SignIn = () => {
     <Container>
       <KeyboardAwareScrollView>
         <View className='items-center p-4 sm:p-[100px] w-full'>
-          <View className='sm:bg-card mt-4 items-center w-full max-w-lg sm:shadow-xl sm:shadow-muted dark:shadow-none rounded sm:p-20'>
+          <View className='sm:bg-card mt-4 items-center w-full max-w-lg sm:shadow-xl sm:shadow-neutral-200 dark:shadow-none rounded sm:p-20'>
             <H4 className=' text-center'>
               Sign in to your account
             </H4>
@@ -52,14 +53,15 @@ const SignIn = () => {
             <Muted className='mt-4 text-center'>
               Harmony Builds Wealth, Together We Flourish
             </Muted>
+
             <TextInput
-              className='mt-10 bg-neutral-200 rounded'
               placeholder={t`Phone number`}
               inputMode='numeric'
               value={phone}
               onChangeText={handleChange}
               onSubmitEditing={handleSubmit}
             />
+
             <Error className='mt-2'>{err || ""}</Error>
 
             <View className='w-full mt-7'>

@@ -6,7 +6,7 @@ module.exports = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   presets: [require('nativewind/preset')],
   theme: {
-    derRadius: {
+    borderRadius: {
       'xxs': '2px',
       'xs': '4px',
       'DEFAULT': '4px',
@@ -66,6 +66,7 @@ module.exports = {
         card: 'var(--card)',
         text: 'var(--text)',
         muted: 'var(--muted)',
+        input: 'var(--input)',
         neutral: {
           100: 'var(--neutral-100)',
           200: 'var(--neutral-200)',
