@@ -107,7 +107,7 @@ const SignIn = (props: Props) => {
               }}
               onFilled={(text) => handleSubmit(text)}
             />
-            <Error className='mt-2'>{err || ""}</Error>
+            <Error className='my-ml'>{err || ""}</Error>
             <Button variant="outline"
               onPress={handleResend}
               disabled={count !== 0}
