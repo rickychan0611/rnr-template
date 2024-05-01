@@ -1,20 +1,21 @@
 import { QueryCache, useQuery, useQueryClient } from '@tanstack/react-query';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Text } from 'react-native';
+import { useOrders } from '~/api/queryHooks/useProductQueries';
+import { useGetOrderList } from '~/interfaces/productTypes';
 
 type Props = {}
 
 const Orders = (props: Props) => {
-  const queryClient = useQueryClient()
-  const data = queryClient.getQueryData(['userInfo'])
-  // const { data } = useUserInfo()
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+  const [input, setInput] = React.useState<useGetOrderList>({
+    status: "all",
+    page: 1,
+    pagesize: 10
+  })
+  const orders = useOrders(input)
 
   return (
-    <Text>{JSON.stringify(data)}</Text>
+    <Text>{JSON.stringify(orders.data[0].id)}</Text>
   )
 }
 

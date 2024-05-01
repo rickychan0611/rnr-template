@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { GET, POST, POST_NO_TOKEN } from './apiCalls'
 
-export const userApi = {
+export const api_user = {
 
   sendSignInCode: async (phone: string) => {
     // console.log("ipResponsexxxxxxxxx")

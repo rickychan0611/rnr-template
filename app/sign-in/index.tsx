@@ -9,7 +9,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { useRouter } from 'expo-router'
 import { useTranslation } from 'react-i18next'
 import { useMutation } from '@tanstack/react-query'
-import { userApi } from '~/api/api.user'
+import { api_user } from '~/api/api_user'
 import Button from '~/components/Button'
 
 const SignIn = () => {
@@ -19,7 +19,7 @@ const SignIn = () => {
   const [err, setErr] = useState("")
 
   const sendCodeQuery = useMutation({
-    mutationFn: () => userApi.sendSignInCode(phone),
+    mutationFn: () => api_user.sendSignInCode(phone),
     onError: (err) => {
       console.log("onError", err)
       setErr("Invalid Phone Number")

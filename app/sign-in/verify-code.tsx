@@ -10,7 +10,7 @@ import { OtpInput } from "react-native-otp-entry";
 import { useColorScheme } from '~/lib/useColorScheme';
 import BackAndTitle from '~/components/BackAndTitle'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { userApi } from '~/api/api.user'
+import { api_user } from '~/api/api_user'
 import tw from "twrnc"
 
 type Props = {}
@@ -39,13 +39,13 @@ const SignIn = (props: Props) => {
   const queryClient = useQueryClient();
 
   const sendCodeMutation = useMutation({
-    mutationFn: () => userApi.sendSignInCode(phone),
+    mutationFn: () => api_user.sendSignInCode(phone),
   });
 
   const logInMutation = useMutation({
     mutationFn: (code: string) => {
       console.log(code)
-      return userApi.login(phone, code)
+      return api_user.login(phone, code)
     },
     onError: (err) => {
       console.log("onError", err)
