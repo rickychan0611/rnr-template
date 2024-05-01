@@ -14,7 +14,7 @@ type Props = {
   circle?: boolean
 }
 
-const Button: React.FC<Props> = ({ children, variant, disabled, className, icon, circle }, props) => {
+const Button: React.FC<Props> = ({ children, variant, disabled, className, icon, circle, onPress }, props) => {
   // default
   let bgClass = 'bg-primary web:hover:bg-primary-700 border border-primary web:hover:border-primary-700'
   let textClass = "text-primary-foreground"
@@ -47,7 +47,7 @@ const Button: React.FC<Props> = ({ children, variant, disabled, className, icon,
   const Icon: any = icon ? Icons[icon] : <></>
 
   return (
-    <PressableOpacity {...props} className={className}>
+    <PressableOpacity className={className} disabled={disabled} onPress={onPress}>
       <Center className={bgClass + cirlceClass}>
         <Row className='gap-2'>
           {icon && <Icon className={textClass as string} />}

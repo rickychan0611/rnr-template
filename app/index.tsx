@@ -20,13 +20,14 @@ export default function Screen() {
         <ArrowLeft className='text-primary m-4' />
         <ScrollView className='p-4'>
           <Row className='gap-4 mb-4'>
-            <Button icon="Info" circle>
+            <Button icon="Info" circle
+              onPress={() => { console.log("ress") }}>
               Primary
             </Button>
             <Button variant='secondary'>
               Secondary
             </Button>
-            <Button variant='outline'  icon="Home">
+            <Button variant='outline' icon="Home">
               outline
             </Button>
           </Row>
@@ -34,10 +35,10 @@ export default function Screen() {
             <Button disabled>
               Primary
             </Button >
-            <Button variant='secondary' disabled  icon="Info">
+            <Button variant='secondary' disabled icon="Info">
               Secondary
             </Button>
-            <Button variant='outline' disabled   icon="Info" circle />
+            <Button variant='outline' disabled icon="Info" circle />
           </Row>
           <View className={`flex-col gap-4 pb-[100px] `}>
             <H1 className=''>H1 Continue</H1>

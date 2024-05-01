@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { Pressable, View } from 'react-native';
 
-function PressableOpacity({ onPress, children }: any) {
+function PressableOpacity({ onPress, children, disabled }: any) {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} disabled={disabled}>
       {({ pressed }) => (
         <View style={{ opacity: pressed ? 0.5 : 1 }}>
           {children}
