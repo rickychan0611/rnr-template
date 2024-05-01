@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
-import { api_products } from "../api_products"
+import { api_user } from "../api_user"
 
 const useGetUserInfo = () => {
   return useQuery({
-    queryKey: ["orders"],
-    queryFn: () => api_products.getOrders( "all", 1, 0, 0),
+    queryKey: ["userInfo"],
+    queryFn: () => api_user.getUserInfo(),
   })
 }
 

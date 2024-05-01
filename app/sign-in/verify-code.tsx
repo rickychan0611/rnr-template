@@ -12,6 +12,7 @@ import BackAndTitle from '~/components/BackAndTitle'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { api_user } from '~/api/api_user'
 import tw from "twrnc"
+import { useOrders } from '~/api/queryHooks/useProductQueries'
 
 type Props = {}
 
@@ -99,7 +100,7 @@ const SignIn = (props: Props) => {
               }}
               theme={{
                 containerStyle: tw`flex-1 w-full max-w-[95%] min-w-[300px]`,
-                pinCodeContainerStyle: tw` min-h-14 min-w-10 h-full`,
+                pinCodeContainerStyle: tw` min-h-14 min-w-10 h-full bg-white border-2`,
                 pinCodeTextStyle: tw`text-red-400 text-xl`,
                 focusStickStyle: tw`bg-red-400`,
                 focusedPinCodeContainerStyle: tw`border-red-300`,

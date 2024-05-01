@@ -5,7 +5,6 @@ import { useFonts } from "expo-font";
 import { SplashScreen } from "expo-router";
 import React, { useEffect } from "react";
 import { Platform } from "react-native";
-import { useGetUserInfo } from "~/api/queryHooks/useUserQueries";
 
 import { NAV_THEME } from "~/lib/constants";
 import { useColorScheme } from '~/lib/useColorScheme';
@@ -78,7 +77,6 @@ const InitApp = ({ children }: { children: React.ReactNode }) => {
   }, [fontsLoaded, isColorSchemeLoaded])
 
 
-  const userInfo = useGetUserInfo()
 
   // // initial queries
   // useEffect(() => {

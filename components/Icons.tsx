@@ -1,18 +1,4 @@
-import * as LucideIcons from 'lucide-react-native';
-import { cssInterop } from 'nativewind';
+import * as Icons from 'lucide-react-native';
 
-function interopIcon(icon: any) {
-  cssInterop(icon, {
-    className: {
-      target: 'style',
-      nativeStyleToProp: {
-        color: true,
-        opacity: true,
-      },
-    },
-  });
-}
-
-Object.values(LucideIcons).forEach(icon => interopIcon(icon));
-
+export default Icons
 export * from 'lucide-react-native'

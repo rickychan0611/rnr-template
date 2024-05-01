@@ -18,9 +18,9 @@ import AppBar from '~/components/AppBar';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { useReactQueryDevTools } from '@dev-plugins/react-query';
-import { useGetUserInfo } from '~/api/queryHooks/useUserQueries';
 
 export default function RootLayout() {
+
   // cssInterop(Image, { className: "style" });
   const { isDarkColorScheme } = useColorScheme();
   const { t } = useTranslation("common")
