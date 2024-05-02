@@ -54,8 +54,8 @@ export default function RootLayout() {
     <QueryClientProvider client={client}>
       <View className='flex-1 bg-background'>
         <InitApp >
-          {up && <StatusBar barStyle='light-content' animated />}
-          <AppBar />
+          {up && <StatusBar barStyle={isDarkColorScheme ? 'dark-content' : 'light-content'} animated />}
+          {/* <AppBar /> */}
           <Tabs
             initialRouteName='sign-in'
             backBehavior='history'

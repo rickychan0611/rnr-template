@@ -11,6 +11,7 @@
     --input: #ffffff;
     --card: #ffffff;
     --muted: #989596;
+    --divider: #E1E1E1;
     --primary-100: #FAEBE9;
     --primary-200: #F4DAD7;
     --primary-300: #EBBCB6;
@@ -33,6 +34,7 @@
     --secondary-900: #164D75;
     --secondary-1000: #103855;
     --secondary-foreground: #F2F8FD;
+    --neutral-50: ##EFEEEE;
     --neutral-100: #E1E1E1;
     --neutral-200: #C9C8C8;
     --neutral-300: #B0AFAF;
@@ -62,6 +64,7 @@
     --background: #000;
     --card: #272629;
     --muted: #817C7D;
+    --divider: #424040;
     --primary-1000: #FAEBE9;
     --primary-900: #F4DAD7;
     --primary-800: #EBBCB6;
@@ -84,6 +87,7 @@
     --secondary-200: #173F63;
     --secondary-100: #0F2842;
     --secondary-foreground: #00344F;
+    --neutral-50: #161616;
     --neutral-1000: #E1E1E1;
     --neutral-900: #C9C8C8;
     --neutral-800: #B0AFAF;

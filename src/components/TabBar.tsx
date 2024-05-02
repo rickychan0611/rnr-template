@@ -16,7 +16,7 @@ export default function TabBar({ state, descriptors, navigation, props }: any) {
   }
 
   return (
-    <View className={`flex-row pt-4 bg-card`}
+    <View className={`flex-row pt-2 bg-card`}
       style={{ paddingBottom: insets?.bottom || 6 }}>
       {state.routes.map((route: any, index: number) => {
 

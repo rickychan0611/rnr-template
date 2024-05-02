@@ -25,3 +25,9 @@ export const Center: FC<Props> = ({ className, children, ...props }) => (
   </View>
 )
 
+export const ColCenter: FC<Props> = ({ className, children, ...props }) => (
+  <View className={`flex-col items-center justify-center ` + className} {...props}>
+    {children}
+  </View>
+)
+

@@ -67,7 +67,9 @@ module.exports = {
         text: 'var(--text)',
         muted: 'var(--muted)',
         input: 'var(--input)',
+        divider: 'var(--divider)',
         neutral: {
+          50: 'var(--neutral-50)',
           100: 'var(--neutral-100)',
           200: 'var(--neutral-200)',
           300: 'var(--neutral-300)',
